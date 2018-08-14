@@ -1,0 +1,81 @@
+<div id="booking" align="center">
+
+  <h2>{{title}}</h2>
+  <label> Myname:
+    <input type="text" [(ngModel)]="ngname" placeholder="name"></label>
+ <br>
+
+
+  <label> surname:
+    <input type="text" [(ngModel)]="ngSname" placeholder="Surname"></label>
+  <br>
+  
+  
+  <label>Gender :</label> 
+  <select class="form-control" id= "BookingType" required>   
+  <option *ngFor="let g of gender;let x=index" [value]="g">{{gender[x]}}</option>
+  </select>
+  <br>
+
+   <label>Booking Type :</label> 
+    <select class="form-control" id="BookingType" required [(ngModel)] ="selectedbooking">   
+    <option *ngFor="let b of booking;let i=index" [value]="b">{{booking[i]}}</option>
+        </select>
+    <br>
+
+
+
+  <div  *ngIf="selectedbooking==='hotel'">
+
+  <input type="radio" id="choice1" name="1day" value="day"> 
+ <label for ="choice1">1 day</label><br>
+
+  <input type="radio"  id="choice2" name="2days"value="day"> 
+ <label for ="choice2">2 days</label><br>
+  
+ <input type="radio" id="choice3" name="3days"value="day"> 
+  <label for ="choice3">3 days</label>
+
+  </div>
+
+
+  <div  *ngIf="selectedbooking==='bus'">
+
+
+      <label>From :</label> 
+      <select class="form-control" id="location">   
+      <option *ngFor="let b1 of bus1;let a=index" [value]="a">{{bus1[a]}}</option>
+          </select>
+          <br>
+          <label>To :</label> 
+      <select class="form-control" id="location">   
+      <option *ngFor="let b2 of bus2;let y=index" [value]="y">{{bus2[y]}}</option>
+          </select>
+ 
+    
+    
+      </div>
+    
+
+  <div  *ngIf="selectedbooking==='computer'">
+ 
+      <input type="radio" id="choice1" name="1hr" value="1hour"> 
+      <label for ="choice1">1 hour</label><br>
+
+      <input type="radio"  id="choice2" name="2hrs"value="2hours"> 
+      <label for ="choice2">2 hours</label><br>
+
+      <input type="radio" id="choice3" name="3hrs"value="3hours"> 
+      <label for ="choice3">3 hours</label>
+    
+      </div>
+    
+         
+          
+ <div id="button">
+          <button (click)="display()"> AddBooking </button>
+
+         
+          <button (click)="display()"> ShowBookings0</button>
+      </div> 
+</div> 
